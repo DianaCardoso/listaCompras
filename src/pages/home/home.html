@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Lista de Compras
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label floating>Item</ion-label>
+          <ion-input type="text" [(ngModel)]="item"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label floating>Quantidade</ion-label>
+          <ion-input type="number" [(ngModel)]="qtde"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-only block (click)="adicionar()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <div ion-item *ngFor="let item of listaCompras">
+      <ion-row>
+        <ion-col col-6>
+          {{ item.nome }}
+        </ion-col>
+        <ion-col col-4>
+          {{ item.qtde }}
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button icon-only block color="danger" (click)="apagar(item)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
+
+</ion-content>
